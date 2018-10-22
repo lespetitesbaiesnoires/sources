@@ -1,0 +1,13 @@
+---
+- title: Accueil
+  url: index.html
+
+- title: Presentation
+  url: index.html#presentation
+
+- title: Photos
+  url: index.html#photos
+
+- title: Contact
+  url: index.html#footer-1
+
