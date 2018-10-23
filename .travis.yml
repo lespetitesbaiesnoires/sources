@@ -4,21 +4,36 @@ rvm:
 
 install:
   - bundle install
-    # - gem install jekyll html-proofer jekyll-paginate-v2 jekyll-feed
 
 script:
+  - rm -rf _site # Clean if _site folder has been commited
+  - git config --global user.name "Travis CI"
+  - git config --global user.email sebastien@boyron.eu
+  - git clone --depth 1 $REPO _site
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --disable-external
+  - bundle exec htmlproofer _site --disable-external
+  - cd _site
+  - git status
+  - git diff
+  - git add --all
+  - git status
+  - git commit -m "Travis automatic build $TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT_MESSAGE)"
+  - git log
+  - git push $REPO master:master
+
+  
+
 
 # branch whitelist, only for GitHub Pages
 branches:
   only:
-  - gh-pages     # test the gh-pages branch
-  - /pages-(.*)/ # test every branch which starts with "pages-"
+    - master
 
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+  - REPO="https://${GITHUB_OAUTH_TOKEN}@github.com/lespetitesbaiesnoires/lespetitesbaiesnoires.github.io.git"
+
 
 addons:
   apt:
