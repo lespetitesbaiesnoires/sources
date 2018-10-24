@@ -3,8 +3,8 @@ title: les petites baies noires
 long_title: les petites baies noires
 email: contact@lespetitesbaiesnoires.com
 
-baseurl: "/" 
-url: "http:///www.lespetitesbaiesnoires.com" # the base hostname & protocol for your site
+baseurl: "" 
+url: "http://www.lespetitesbaiesnoires.com" # the base hostname & protocol for your site
 
 defaults:
   - scope:
@@ -16,6 +16,7 @@ exclude:
   - LICENSE
   - Gemfile
   - Gemfile.lock
+  - localbuild.sh
 
 
 # Build settings
