@@ -1,277 +1,134 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>  
-	<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>les petites baies noires</title> 
-<link href="/img/assets/favicon.ico" rel="icon" type="iimage/x-icon"> 
-<link href="/css/plugins.css" rel="stylesheet" type="text/css">   
-<link href="/css/theme.css" rel="stylesheet" type="text/css">   
-<link href="/css/ionicons.min.css" rel="stylesheet" type="text/css">
-<link href="/css/et-line-icons.css" rel="stylesheet" type="text/css">
-<link href="/css/themify-icons.css" rel="stylesheet" type="text/css"> 
-<link href="/fonts/lovelo/stylesheet.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Raleway:100,200,300,400%7COpen+Sans:400,300' rel='stylesheet' type='text/css'>
-<link href="/css/custom.css" rel="stylesheet" type="text/css"> 
-<link href="/css/colors/blue.css" id="color-scheme" rel="stylesheet" type="text/css">
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-77054149-1', 'auto');ga('send', 'pageview');
-</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </head>
-    <body> 
+</head>
+
+<style>
+
+body {
 	
-	<!-- Start Header -->
-<nav class="navbar navbar-default fullwidth transparent">
-    <div class="container">
+	background-image: url('grunge_patterns.jpg');
+	background-attachment: fixed;
+	color: #333;
+}
+
+.box {
+	border-radius: 3px;
+	background: rgba(101, 101, 101, 0.7); margin: auto; padding: 12px;
+}
+
+.lightbox {
+	zoom: 1.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 10, 10, 0.8);
+	text-align: center;
+	margin: auto;
 	
-	<div class="navbar-header">
-	    <div class="container">
-		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		    <span class="sr-only">Toggle navigation</span>
-		    <span class="icon-bar top-bar"></span>
-		    <span class="icon-bar middle-bar"></span>
-		    <span class="icon-bar bottom-bar"></span>
-		</button>
-		<a class="navbar-brand" href="">
-			<img src="/img/assets/logo_text_white_transparent.png" class="logo-light" alt="#">
-			<img src="/img/assets/logo_text_transparent.png" class="logo-dark" alt="#">
-		</a> 
-	    </div>
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: #955;
+   text-align: center;
+}
+
+::-moz-placeholder {  
+   color: #955;
+   text-align: center;
+}
+
+:-ms-input-placeholder {  
+   color: #955;
+   text-align: center;
+}
+
+</style>
+
+<body>
+	
+	<div id="loginbox" class="lightbox" >
+		<div class="horizontal">
+			<div class="vertical">
+				<div class="box">				
+					<input style="margin: 16px; text-align: center;" id="password" type="password" placeholder="password" /> <br />
+					<button id="loginbutton" type="button">Enter</button>
+					<p id="wrongPassword" style="display: none">wrong password</p>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div id="navbar" class="navbar-collapse collapse">
-	    <div class="container">
-		<ul class="nav navbar-nav menu-right">
-		    
 
-		    <li><a href="/index.html">Accueil</a></li>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	 
+
+	 <script type="text/javascript" src="https://cdn.rawgit.com/chrisveness/crypto/master/sha1.js"></script>
+
+	<script type="text/javascript">
+	"use strict";
+
+
+	function loadPage(pwd) {
 		
-                    
+		var hash= pwd;
+		hash= Sha1.hash(pwd);
+		var url= hash + "/index.html";
+			
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
 
-		    <li><a href="/index.html#presentation">Presentation</a></li>
+				window.location= url;
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+			
+
+				parent.location.hash= hash;
+
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
+
+	 
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+			
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
 		
-                    
+	</script>
 
-		    <li><a href="/index.html#photos">Photos</a></li>
-		
-                    
-
-		    <li><a href="/contact.html">Contact</a></li>
-		
-                    
-		</ul>
-		
-	    </div>
-	</div> 
-    </div>
-</nav>
-<!-- End Header -->
-
-
-        <!-- Hero -->
-<section class="hero-fullscreen parallax overlay bg-img-1">   
-    <div class="hero-container container">  
-        <div class="hero-content text-center">   
-            
-            <div class="col-sm-12 mr-auto white text-center pt20">   
-		    <h1 class="large">les petites baies noires</h1>     
-                <a href="index.html#presentation" class="btn btn-lg btn-primary btn-circle btn-scroll mt40">Entrer</a>  
-            </div> 
-            <a href="index.html#presentation" class="scroll-btn"><i class="ion-chevron-down"></i></a>
-            
-        </div>
-    </div>    
-</section>
-<!-- End Hero -->       
-     
-<!-- Image Column -->
-<section id="presentation" class="pb120 bg-grey">
-    <div class="container">
-        <div class="vertical-align">
-
-            <div class="col-md-6 p5percent">
-                <h1>Présentation</h1>   
-		<p>Les vignes sont situées au cœur du massif des Corbières, là où la vigne est avec l'olivier et le chêne truffier les seules cultures possibles. Jean-Marie ESPEUT a repris il y a dix ans les vignes cultivées dans la famille depuis trois générations et a fait une sélection des meilleures parcelles de Syrah et de Mourvèdre. Les terres sont situées sur les hauteurs de la commune de Saint Laurent de la Cabrerisse sur un terroir argilo-calcaire.
-		</p>
-		<p>Une très faible pluviométrie et un vent de Nord Ouest: le Cers permettent de limiter considérablement les traitements phyto-sanitaires.
-		</p>
-		<p>Les sols sont labourés, les vendanges sont manuelles avec une première sélection à la vigne et un ramassage en cagettes. Un deuxième tri est effectué à la cave sur un tapis. Les baies sont ensuite versées manuellement dans des cuves de 20hl. Les pigeages sont effectuées manuellement fréquemment en début de fermentation en diminuant la fréquence par la suite. Les durées de fermentation ont été de 21 jours pour le mourvèdre et 26 jours pour la syrah. Un vieillissement de 9 mois est réalisé en barriques neuves  pour la moitié de la récolte.
-		</p>
-            </div>
-            
-            <div class="col-md-6">
-	        <img src="img/presentation/IMG_001.jpg" alt="#"/>
-            </div> 
-            
-        </div>
-    </div>
-</section>            
-<!-- End Image Column -->
-
-<!-- Portfolio -->
-
-<section id="photos" class="p0">
-    <div class="container-fluid">
-        <div class="row">    
-            <div class="portfolio-no-gutter-fullwidth cbp" id="js-grid-no-gutter">
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_010.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_020.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_030.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_040.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_050.jpg" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_060.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_070.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_080.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_090.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_100.JPG" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_110.jpg" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_120.jpg" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_130.jpg" alt="#">
-                        </div>
-                </div>
-		
-                <div class="cbp-item print branding">
-                        <div class="cbp-caption-defaultWrap">
-				<img src="/img/photos/img_140.jpg" alt="#">
-                        </div>
-                </div>
-		
-            </div> 
-        </div>
-    </div>
-</section>            
-<!-- End Portfolio -->   
-
-
-	<!-- Footer One -->
-<footer id="footer-1">
-
-    <div class="footer-columns">
-	<div class="container">
-	    <div class="row">
-
-		<div class="col-md-3">
-		    <h4 class="subheading">Contact</h4>
-		    <p>
-		    <a href="mailto:contact@lespetitesbaiesnoires.com">contact@lespetitesbaiesnoires.com</a>
-		    </p>
-		    <p>
-		    <a href="tel:+33652568870">06 52 56 88 70</a>
-		    </p> 
-		</div>
-
-		<div class="col-md-3">
-		    <h4 class="subheading">Domaine</h4>
-		    <p>ESPEUT Jean-Marie</p>
-		    <p>
-		    <a href="http://www.st-laurent-de-la-cabrerisse.com/">Saint Laurent de la Cabrerisse</a>
-		    </p>
-		</div>
-
-		<div class="col-md-3">
-		    <h4 class="subheading">Siege</h4>
-		    <p>ESPEUT Jean-Marie</p>
-		    <p>17 Ch du pont de Jean Petit</p>
-		    <p>11200 CONILHAC-CORBIERES</p>
-		</div>
-
-
-	    </div>
-	</div>  
-    </div>
-
-    <div class="footer-copyright">
-	<div class="container">
-	    <div class="row">
-
-		<div class="col-md-6 col-sm-12">
-		    <p>© 2018 <a href="index.html" class="logo">les petites baies noires</a> All Rights Reserved. </p>
-		</div>
-	    </div>
-	</div>
-    </div>
-
-</footer>
-<!-- End Footer One -->
-
-<!-- Start Back To Top -->
-<a id="back-to-top"><i class="icon ion-chevron-up"></i></a>
-<!-- End Back To Top --> 
-
-<!-- Scripts -->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/plugins.js"></script>
-<script src="/js/scripts.js"></script>
-
-
-
-
-    </body>
+</body>
 </html>
-
