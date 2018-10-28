@@ -81,7 +81,7 @@ case "$TRAVIS_BRANCH" in
 		BRANCH="master"
 		CNAME="www.lespetitesbaiesnoires.com"
 		SITE_URL="https://${CNAME}"
-		SITE_BASEURL="/"
+		SITE_BASEURL=""
 	;;
 	"develop")
 		REPO="https://${GITHUB_OAUTH_TOKEN}@github.com/lespetitesbaiesnoires/sources.git"

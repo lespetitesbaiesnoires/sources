@@ -30,7 +30,7 @@
             </div>
             
             <div class="col-md-6">
-	        <img src="{{ site.baseurl }}img/presentation/IMG_001.jpg" alt="#"/>
+	        <img src="{{ site.baseurl }}/img/presentation/IMG_001.jpg" alt="#"/>
             </div> 
             
         </div>
@@ -47,7 +47,7 @@
 		{% for myimage in image_files %}
                 <div class="cbp-item print branding">
                         <div class="cbp-caption-defaultWrap">
-				<img src="{{ myimage.path }}" alt="#">
+				<img src="{{ site.baseurl }}/{{ myimage.path }}" alt="#">
                         </div>
                 </div>
 		{% endfor %}
