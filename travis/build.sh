@@ -40,6 +40,8 @@ function build_site () {
 	cp -f _config_tpl.yml _config.yml
 	sed -i 's@^\(baseurl:[[:space:]]*"\)[^#]*\("\)@\1'${SITE_BASEURL}'\2@' _config.yml 
 	sed -i 's@^\(url:[[:space:]]*"\)[^#]*\("\)@\1'${SITE_URL}'\2@' _config.yml 
+
+	cat _config.yml
 	
 	# Copy google file
 	cp google*.html /tmp/build/
