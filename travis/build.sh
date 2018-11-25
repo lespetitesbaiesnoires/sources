@@ -43,13 +43,13 @@ function build_site () {
 
 	cat _config.yml
 	
-	# Copy google file
-	cp google*.html /tmp/build/
-	echo "${CNAME}" > /tmp/build/CNAME
- 
 	# build site
 	bundle exec jekyll build
 	
+	# Copy google file
+	cp google*.html /tmp/build/${SITE_BASEURL}/
+	echo "${CNAME}" > /tmp/build/CNAME
+ 
 	# clean
 	rm _config.yml
 }
