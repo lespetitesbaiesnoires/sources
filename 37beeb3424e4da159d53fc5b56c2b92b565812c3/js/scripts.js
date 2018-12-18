@@ -121,7 +121,7 @@
         nav: true,
         rewindNav: true,
         loop: true,
-        navText: ["<img src='img/assets/slider-left-thin-arrow.png'>", "<img src='img/assets/slider-right-thin-arrow.png'>"]
+        navText: ["<img src='../img/assets/slider-left-thin-arrow.png'>", "<img src='../img/assets/slider-right-thin-arrow.png'>"]
     });
 
     $(".content-slider").owlCarousel({
@@ -191,21 +191,21 @@
         items: 1,
         dots: true,
         nav: true,
-        navText: ["<img src='img/assets/slider-left-thin-arrow-dark.png'>", "<img src='img/assets/slider-right-thin-arrow-dark.png'>"]
+        navText: ["<img src='../img/assets/slider-left-thin-arrow-dark.png'>", "<img src='../img/assets/slider-right-thin-arrow-dark.png'>"]
     });
 
     $(".shop-product-slider").owlCarousel({
         autoplay : true,
         autoplayTimeout: 3000,
         nav: true,
-        navText: ["<img src='img/assets/slider-left-thin-arrow-dark.png'>", "<img src='img/assets/slider-right-thin-arrow-dark.png'>"],
+        navText: ["<img src='../img/assets/slider-left-thin-arrow-dark.png'>", "<img src='../img/assets/slider-right-thin-arrow-dark.png'>"],
         dots: true,
         items: 1
     });
 
     $(".image-slider1,.image-slider2,.image-slider5,.image-slider6,.image-slider7").owlCarousel({
         nav: true,
-        navText: ["<img src='img/assets/slider-left-thin-arrow.png'>", "<img src='img/assets/slider-right-thin-arrow.png'>"],
+        navText: ["<img src='../img/assets/slider-left-thin-arrow.png'>", "<img src='../img/assets/slider-right-thin-arrow.png'>"],
         slideSpeed : 300,
         dots: true,
         items: 1
@@ -220,16 +220,12 @@
 
     // Contact Form
     $('#contactform').submit(function () {
-	var success_header = '<fieldset><div id="success_page"><h4 class="highlight">';
-	var success_footer = '</h4></div></fieldset>';
-	var error_header = '<div class="error_message">';
-	var error_footer = '</div>';
                     	
         var action = $(this).attr('action');
         $("#message").slideUp(250, function () {
             $('#message').hide();
             $('#submit')
-                .after('<img src="img/assets/contact-form-loader.gif" class="loader" />')
+                .after('<img src="../img/assets/contact-form-loader.gif" class="loader" />')
                 .attr('disabled', 'disabled');
             $.post(action, {
                 name: $('#name').val(),
@@ -240,10 +236,12 @@
             },
                 function (data) {
 		    if ( data.result == "success" ) {
-			    document.getElementById('message').innerHTML = success_header + String(data.data) + success_footer;
+			    document.getElementById('message').innerHTML = 
+				document.getElementById('message_success').innerHTML;
                             $('#contactform').hide();
 	            } else {
-			    document.getElementById('message').innerHTML = error_header + String(data.data) + error_footer;
+			    document.getElementById('message').innerHTML =
+				document.getElementById('message_error').innerHTML;
 		    }
                     $('#message').slideDown(250);
                     $('#contactform img.loader').fadeOut('slow', function () {$(this).remove(); });

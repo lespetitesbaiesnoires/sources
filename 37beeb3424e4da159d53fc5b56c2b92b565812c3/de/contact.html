@@ -113,7 +113,17 @@
         <div class="row">
 
             <div class="contact col-md-9">
-                <div id="message"></div>
+                <div id="message_success" style="display: none;">
+			<fieldset>
+				<div id="success_page">
+					<h4 class="highlight">E-Mail erfolgreich versendet!</h4>
+				</div>
+			</fieldset>
+		</div>
+                <div id="message_error" style="display: none;">
+			<div class="error_message">FEHLER: Ungültige E-Mail-Adresse!</div>
+		</div>
+		<div id="message"></div>
                 <!-- Contact Form will be functional only on your server. Upload to your server when testing. -->
                 <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbztA4r3Sb8l_SlrkUj8hRqQxzIseFh53TqzEnBE7wJLAh3lkf4A/exec"  name="contactform" id="contactform">
                     <fieldset><input name="name" id="name" type="text" placeholder="Name*" required/></fieldset>
@@ -176,7 +186,7 @@ Oder kontaktieren Sie uns hier:
 		    <a href="/37beeb3424e4da159d53fc5b56c2b92b565812c3/de/contact.html">contact@lespetitesbaiesnoires.com</a>
 		    </p>
 		    <p>
-		    <a href="tel:33652568870">(00 33)6 52 56 88 70</a>
+		    <a href="tel:+33652568870">(00 33)6 52 56 88 70</a>
 		    </p> 
 		</div>
 
