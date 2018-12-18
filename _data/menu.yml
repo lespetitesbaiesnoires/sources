@@ -1,13 +1,25 @@
 ---
-- title: Accueil
+- title:
+    fr: Accueil
+    en: Home
+    de: Home
   url: index.html
 
-- title: Presentation
+- title:
+    fr: Presentation
+    en: Introduction
+    de: Einführung
   url: index.html#presentation
 
-- title: Photos
+- title:
+    fr: Photos
+    en: Photos
+    de: Fotos
   url: index.html#photos
 
-- title: Contact
+- title:
+    fr: Contact
+    en: Contact
+    de: Kontakt
   url: contact.html
 

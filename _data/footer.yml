@@ -1,0 +1,14 @@
+---
+fr:
+  contact: Contact
+  estate: Domaine
+  head_office: Siège
+de:
+  contact: Kontakt
+  estate: Weingut 
+  head_office: Hauptsitz
+en:
+  contact: Contact
+  estate: Estate
+  head_office: Head Office
+

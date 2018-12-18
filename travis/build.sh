@@ -24,9 +24,11 @@ function test_site () {
 	rm -rf _site
 	# build and test using right baseurl and url (to allow testing with htmlproofer)
 	cp -f _config_tpl.yml _config.yml
+	cp -f fr/index.html index.html
 	bundle exec jekyll build
 	bundle exec htmlproofer _site --disable-external
 	rm _config.yml
+	rm index.html
 
 }
 
@@ -35,6 +37,9 @@ function build_site () {
 	rm -rf _site
 	mkdir -p /tmp/build/${SITE_BASEURL}
 	ln -sf /tmp/build/${SITE_BASEURL} _site
+
+	# Set default page to french language
+	cp -f fr/index.html index.html
 
 	# customize config reguarding the target (dev/prod)
 	cp -f _config_tpl.yml _config.yml
@@ -52,6 +57,7 @@ function build_site () {
  
 	# clean
 	rm _config.yml
+	rm index.html
 }
 
 

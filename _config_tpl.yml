@@ -1,7 +1,12 @@
 # Site settings
 title: les petites baies noires
 long_title: les petites baies noires
+name: ESPEUT Jean-Marie
 email: contact@lespetitesbaiesnoires.com
+phone:
+  long: "(00 33)6 52 56 88 70"
+  short: "+33652568870"
+address: "17 Ch du pont de Jean Petit<br />11200 CONILHAC-CORBIERES"
 
 baseurl: "/" 
 url: "http://www.lespetitesbaiesnoires.com" # the base hostname & protocol for your site
@@ -20,6 +25,7 @@ exclude:
   - travis
   - CNAME
   - google*.html
+  - extract_traduction.sh
 
 
 # Build settings

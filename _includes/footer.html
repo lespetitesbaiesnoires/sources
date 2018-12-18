@@ -6,31 +6,27 @@
 	    <div class="row">
 
 		<div class="col-md-3">
-		    <h4 class="subheading">Contact</h4>
+		    <h4 class="subheading">{{ site.data.footer[page.lang].contact }}</h4>
 		    <p>
-		    <a href="contact.html">contact@lespetitesbaiesnoires.com</a>
+		    <a href="{{ site.baseurl }}/{{ page.lang }}/contact.html">{{ site.email }}</a>
 		    </p>
 		    <p>
-		    <a href="tel:+33652568870">06 52 56 88 70</a>
+		    <a href="tel:{{ site.phone.short }}">{{ site.phone.long }}</a>
 		    </p> 
 		</div>
 
 		<div class="col-md-3">
-		    <h4 class="subheading">Domaine</h4>
-		    <p>ESPEUT Jean-Marie</p>
+		    <h4 class="subheading">{{ site.data.footer[page.lang].estate }}</h4>
+		    <p>{{ site.name }}</p>
 		    <p>
 		    <a href="http://www.st-laurent-de-la-cabrerisse.com/">Saint Laurent de la Cabrerisse</a>
 		    </p>
 		</div>
 
 		<div class="col-md-3">
-		    <h4 class="subheading">Siege</h4>
-		    <p>ESPEUT Jean-Marie</p>
-		    <p>
-	              <a target="_blank href="https://www.google.com/maps?q=17%20chemin%20du%20pont%20de%20jean%20petit%201200%20conilhac-corbieres">
-		          17 Ch du pont de Jean Petit<
-			  <br />11200 CONILHAC-CORBIERES
-	             </a>
+		    <h4 class="subheading">{{ site.data.footer[page.lang].head_office }}</h4>
+		    <p>{{ site.name }}<br/>
+	              <a target="_blank" href="https://www.google.com/maps?q=17%20chemin%20du%20pont%20de%20jean%20petit%201200%20conilhac-corbieres">{{ site.address }}</a>
 		    </p>
 		</div>
 

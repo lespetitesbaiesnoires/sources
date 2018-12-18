@@ -4194,7 +4194,7 @@ input[type="submit"][disabled] { background:#888; }
 	color: #f4f4f4;
 	-webkit-border-radius: 3px;
 	background-color: #c0392b;
-	background-image: url(http://wander.thememeister.com/img/error.gif);
+	#background-image: url(http://wander.thememeister.com/img/error.gif);
 	background-position: 10px center;
 	background-repeat: no-repeat;
 }

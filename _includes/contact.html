@@ -3,9 +3,9 @@
     <div class="page-title-content">
         <div class="container">
             <div class="col-sm-12 text-center white">
-                <h1>Contactez-nous</h1>
+                <h1>{{ page.title }}</h1>
                 <hr class="separator">
-                <h5 class="subheading">Les petites baies noires</h5>
+                <h5 class="subheading">{{ site.long_title }}</h5>
             </div>
         </div>
     </div>
@@ -18,37 +18,43 @@
         <div class="row">
 
             <div class="contact col-md-9">
-                <div id="message"></div>
+                <div id="message_success" style="display: none;">
+			<fieldset>
+				<div id="success_page">
+					<h4 class="highlight">{{ page.message.success }}</h4>
+				</div>
+			</fieldset>
+		</div>
+                <div id="message_error" style="display: none;">
+			<div class="error_message">{{ page.message.error }}</div>
+		</div>
+		<div id="message"></div>
                 <!-- Contact Form will be functional only on your server. Upload to your server when testing. -->
                 <form class="gform" method="post" action="https://script.google.com/macros/s/AKfycbztA4r3Sb8l_SlrkUj8hRqQxzIseFh53TqzEnBE7wJLAh3lkf4A/exec"  name="contactform" id="contactform">
-                    <fieldset><input name="name" id="name" type="text" placeholder="Nom*" required/></fieldset>
-                    <fieldset><input name="email" id="email" type="text" placeholder="Email*" required/></fieldset>
-                    <input name="subject" id="subject" type="text"  placeholder="Sujet*" value="Les petites baies noires - Prise de contact" readonly/>
-                    <textarea name="content" id="content" cols="40" rows="3" placeholder="Message*"></textarea>
+                    <fieldset><input name="name" id="name" type="text" placeholder="{{ page.form.name }}*" required/></fieldset>
+                    <fieldset><input name="email" id="email" type="text" placeholder="{{ page.form.email }}*" required/></fieldset>
+                    <input name="subject" id="subject" type="text"  placeholder="{{ page.form.subject.key }}*" value="Les petites baies noires - {{ page.form.subject.value }}" readonly/>
+                    <textarea name="content" id="content" cols="40" rows="3" placeholder="{{ page.form.content }}*"></textarea>
 
 
-                    <input type="submit" class="submit btn btn-md btn-primary" id="submit" value="Envoyer" />
+                    <input type="submit" class="submit btn btn-md btn-primary" id="submit" value="{{ page.form.submit }}" />
                 </form>
             </div>
 
             <div class="col-md-3 contact-side">
                 <div class="side-info">
-                    <h5>Des questions ?</h5>
+                    <h5>{{ page.side.title }}</h5>
                     <p>
-		        <p>
-			Posez-les ci-contre !
-			<br />
-			Ou contactez-nous ici :
-			</p>
+			{{ page.side.content }}
 			<br />
 			<a href="https://www.google.com/maps?q=17%20chemin%20du%20pont%20de%20jean%20petit%201200%20conilhac-corbieres">
-				17 Ch du pont de Jean Petit<
+				17 Ch du pont de Jean Petit
 				<br />11200 CONILHAC-CORBIERES
 			</a>
                         <br />
-		        <a href="tel:+33652568870">06 52 56 88 70</a>
+		        <a href="tel:+33652568870">(00 33)6 52 56 88 70</a>
                         <br />
-                        <a href="contact.html">contact@lespetitesbaiesnoires.com</a>
+                        <a href="{{ site.baseurl }}/{{ page.lang }}/contact.html">contact@lespetitesbaiesnoires.com</a>
                     </p>
                 </div>
             </div>

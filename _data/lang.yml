@@ -1,0 +1,16 @@
+---
+- lang: fr
+  alt: Français
+  img: img/flags/fr.png
+  page: fr
+
+- lang: en
+  alt: English
+  img: img/flags/en.png
+  page: en
+
+- lang: de
+  alt: Deutsch
+  img: img/flags/de.png
+  page: de
+
